@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://img-premium.flaticon.com/png/512/1292/premium/1292834.png?token=exp=1629489119~hmac=cb50f730a2ff278b57a701336713ebcb"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Todo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List</title>
+      </head>
+      <body>
+        <nav class="navbar">
+          <h1 class="title">Todo List</h1>
+          <ul class="nav-items">
+            <li class="nav-item">Login</li>
+            <li class="nav-item">Register</li>
+          </ul>
+        </nav>
+        <div class="container">
+          <form action="/addTodo" method="POST">
+            <input
+              class="add-item"
+              type="text"
+              placeholder="Add your Todo"
+              name="todoItem"
+            />
+            <button type="submit" class="btn">Add</button>
+          </form>
+          <ul class="todoItems">
+            <% for(let i=0; i < items.length; i++) {%>
+            <li class="item">
+              <% if(items[i].completed === true) {%>
+              <span class="completed"><%= items[i].task %></span>
+              <% }else{ %>
+              <span><%= items[i].task %></span>
+              <% } %>
+              <span class="fa fa-trash"></span>
+            </li>
+            <% } %>
+          </ul>
+          <h2 class="left">Left to do: <%= left %></h2>
+        </div>
+
+        <script src="js/main.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
