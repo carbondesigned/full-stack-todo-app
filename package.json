@@ -16,5 +16,9 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongodb": "^4.1.0"
-  }
+  },
+  "permissions": [
+    "*://developer.mozilla.org/*",
+    "webRequest"
+  ]
 }

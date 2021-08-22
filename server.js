@@ -50,10 +50,13 @@ app.post("/addTodo", (request, response) => {
 
 app.delete("/deleteItem", (request, response) => {
   db.collection("todos")
-    .deleteOne({ task: request.body.itemFromJS })
+    .deleteOne({ task: request.body.task })
     .then((result) => {
-      console.log("Todo Deleted");
-      response.json("Todo Deleted");
+      console.log(result);
+      if (result.acknowledged && result.deletedCount > 0) {
+        console.log("Todo Deleted");
+        response.json("Todo Deleted");
+      }
     })
     .catch((error) => console.error(error));
 });
